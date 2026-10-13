@@ -1,2 +1,231 @@
+/* ============================================================
+   ALPINE EDUCATIONAL CONSULTANCY — MAIN SCRIPT
+   ============================================================ */
 
-console.log("Consultancy website loaded successfully.");
+'use strict';
+
+/* ---- Footer year ---- */
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* ---- Navbar scroll behaviour ---- */
+const navbar = document.getElementById('navbar');
+let lastScrollY = 0;
+
+function onScroll() {
+  const scrollY = window.scrollY;
+  if (navbar) {
+    if (scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+  lastScrollY = scrollY;
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ---- Active nav link on scroll ---- */
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveLink() {
+  const offset = 120;
+  let current = '';
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top <= offset) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href && href === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+/* ---- Mobile hamburger menu ---- */
+const hamburger = document.getElementById('hamburger');
+const navLinksEl = document.getElementById('nav-links');
+
+if (hamburger && navLinksEl) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinksEl.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close on nav link click
+  navLinksEl.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinksEl.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (navLinksEl.classList.contains('open') &&
+        !navLinksEl.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      navLinksEl.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+/* ---- Scroll reveal animations ---- */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('[data-animate]');
+
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show all immediately
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.delay || 0, 10);
+          setTimeout(() => {
+            entry.target.classList.add('is-visible');
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  elements.forEach(el => observer.observe(el));
+}
+
+initScrollReveal();
+
+/* ---- Enquiry Form Validation & Submission ---- */
+const form = document.getElementById('enquiry-form');
+const formSuccess = document.getElementById('form-success');
+const submitBtn = document.getElementById('form-submit-btn');
+
+function validateField(field) {
+  const id = field.id;
+  const errorEl = document.getElementById(id + '-error') ||
+                  document.getElementById(id.replace('-', '') + '-error');
+  let valid = true;
+  let msg = '';
+
+  field.classList.remove('error');
+
+  if (field.required && !field.value.trim()) {
+    valid = false;
+    msg = 'This field is required.';
+  } else if (id === 'email-address' && field.value.trim()) {
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRx.test(field.value.trim())) {
+      valid = false;
+      msg = 'Please enter a valid email address.';
+    }
+  } else if (id === 'phone-number' && field.value.trim()) {
+    const phoneRx = /^[0-9+\s()-]{7,}$/;
+    if (!phoneRx.test(field.value.trim())) {
+      valid = false;
+      msg = 'Please enter a valid phone number.';
+    }
+  }
+
+  if (!valid) {
+    field.classList.add('error');
+    if (errorEl) errorEl.textContent = msg;
+  } else {
+    if (errorEl) errorEl.textContent = '';
+  }
+
+  return valid;
+}
+
+if (form) {
+  // Live validation on blur
+  form.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', () => validateField(field));
+    field.addEventListener('input', () => {
+      if (field.classList.contains('error')) validateField(field);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validate all required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let allValid = true;
+    requiredFields.forEach(field => {
+      if (!validateField(field)) allValid = false;
+    });
+
+    // Also validate email if filled
+    const emailField = document.getElementById('email-address');
+    if (emailField && emailField.value.trim()) {
+      if (!validateField(emailField)) allValid = false;
+    }
+
+    if (!allValid) return;
+
+    // Simulate form submission (replace with actual backend/form service)
+    const btnText = submitBtn.querySelector('.btn-text');
+    submitBtn.disabled = true;
+    if (btnText) btnText.textContent = 'Sending…';
+
+    // Build mailto as a fallback action
+    const name    = document.getElementById('full-name').value.trim();
+    const phone   = document.getElementById('phone-number').value.trim();
+    const email   = document.getElementById('email-address').value.trim();
+    const service = document.getElementById('service-interest').value;
+    const dest    = document.getElementById('destination-country').value;
+    const msg     = document.getElementById('message').value.trim();
+
+    const subject = encodeURIComponent('Study Abroad Enquiry — Alpine Educational Consultancy');
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\n` +
+      `Service: ${service}\nPreferred Destination: ${dest || 'Not selected'}\n\n` +
+      `Message:\n${msg || 'No message provided.'}`
+    );
+
+    // Show success message after brief delay
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      if (btnText) btnText.textContent = 'Send Enquiry';
+      form.reset();
+      if (formSuccess) {
+        formSuccess.removeAttribute('hidden');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      // Open mailto
+      window.location.href = `mailto:alpineeducationalconsultancy@gmail.com?subject=${subject}&body=${body}`;
+    }, 800);
+  });
+}
+
+/* ---- Smooth scroll for hash links ---- */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});

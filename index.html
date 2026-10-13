@@ -1,55 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Consultancy | Business & Education</title>
-    <meta name="description" content="Contact our consultancy for business and education guidance.">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpine Educational Consultancy | Study Abroad – Ghorahi, Dang, Nepal</title>
+  <meta name="description" content="Alpine Educational Consultancy helps students in Dang, Nepal study abroad in Australia, USA, UK, Canada, New Zealand, South Korea and Finland. Expert guidance on university applications, test preparation (IELTS, PTE, TOEFL), visa processing, and scholarships." />
+  <meta name="keywords" content="study abroad Nepal, education consultancy Dang, IELTS preparation Ghorahi, visa processing Nepal, Alpine Educational Consultancy" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alpineeducationalconsultancy.com.np/" />
+  <meta property="og:title" content="Alpine Educational Consultancy | Study Abroad – Dang, Nepal" />
+  <meta property="og:description" content="Your trusted study abroad partner in Ghorahi-15, Dang. Expert guidance for Australia, USA, UK, Canada, New Zealand, South Korea and Finland." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="imgs/main-logo.PNG" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <h1>Your Consultancy. Best Consultancy of the Year</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h2>Your goals. Our guidance.</h2>
-            <p>Professional business and education consultancy services.</p>
-            <a class="button" href="#contact">Contact Us</a>
-        </section>
+  <!-- TOP BAR -->
+  <div class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-tagline">🎓 Your Gateway to Global Education — Ghorahi, Dang, Nepal</span>
+      <div class="topbar-contacts">
+        <a href="tel:+9779847881874" class="topbar-link" aria-label="Call us">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          9847881874
+        </a>
+        <a href="mailto:alpineeducationalconsultancy@gmail.com" class="topbar-link" aria-label="Email us">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          alpineeducationalconsultancy@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We help clients explore suitable business and education opportunities.</p>
-        </section>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#home" class="nav-logo" aria-label="Alpine Educational Consultancy — Home">
+        <img src="imgs/main-logo.PNG" alt="Alpine Educational Consultancy Logo" class="logo-img" />
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#destinations" class="nav-link">Destinations</a>
+        <a href="#test-prep" class="nav-link">Test Prep</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-cta-group">
+        <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="nav-whatsapp-btn" aria-label="Chat on WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="#contact" class="btn btn-primary" id="nav-enquire-btn">Enquire Now</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-        <section id="services">
-            <h2>Our Services</h2>
-            <p>Explore our consultancy services and contact us for more information.</p>
-        </section>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-content" data-animate="fade-up">
+        <span class="hero-badge">🌏 Study Abroad Consultancy — Dang, Nepal</span>
+        <h1 class="hero-title">Your Dream to<br /><span class="hero-title-accent">Study Abroad</span><br />Starts Here</h1>
+        <p class="hero-subtitle">Expert guidance for university applications, visa processing, test preparation, and scholarships. We help students from Dang reach universities in Australia, USA, UK, Canada, New Zealand, South Korea, and Finland.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg" id="hero-enquire-btn">Enquire Now <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg" id="hero-whatsapp-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">7</span>
+            <span class="hero-stat-label">Countries</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">3</span>
+            <span class="hero-stat-label">English Tests</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">6+</span>
+            <span class="hero-stat-label">Expert Services</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" data-animate="fade-left">
+        <div class="hero-globe-wrapper">
+          <div class="hero-globe">
+            <svg viewBox="0 0 300 300" class="globe-svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="globeGrad" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="#00AEF4" stop-opacity="0.35"/>
+                  <stop offset="60%" stop-color="#00AA4C" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#0a1628" stop-opacity="0.6"/>
+                </radialGradient>
+              </defs>
+              <circle cx="150" cy="150" r="130" fill="url(#globeGrad)" stroke="rgba(0,174,244,0.3)" stroke-width="1.5"/>
+              <ellipse cx="150" cy="75" rx="100" ry="12" fill="none" stroke="rgba(0,174,244,0.2)" stroke-width="1"/>
+              <ellipse cx="150" cy="112" rx="122" ry="12" fill="none" stroke="rgba(0,174,244,0.2)" stroke-width="1"/>
+              <ellipse cx="150" cy="150" rx="130" ry="12" fill="none" stroke="rgba(0,174,244,0.2)" stroke-width="1"/>
+              <ellipse cx="150" cy="188" rx="122" ry="12" fill="none" stroke="rgba(0,174,244,0.2)" stroke-width="1"/>
+              <ellipse cx="150" cy="225" rx="100" ry="12" fill="none" stroke="rgba(0,174,244,0.2)" stroke-width="1"/>
+              <g class="globe-meridians">
+                <ellipse cx="150" cy="150" rx="25" ry="130" fill="none" stroke="rgba(0,174,244,0.18)" stroke-width="1"/>
+                <ellipse cx="150" cy="150" rx="65" ry="130" fill="none" stroke="rgba(0,174,244,0.18)" stroke-width="1"/>
+                <ellipse cx="150" cy="150" rx="105" ry="130" fill="none" stroke="rgba(0,174,244,0.18)" stroke-width="1"/>
+                <ellipse cx="150" cy="150" rx="130" ry="130" fill="none" stroke="rgba(0,174,244,0.18)" stroke-width="1"/>
+              </g>
+              <circle cx="195" cy="105" r="5" fill="#00AA4C" opacity="0.9"/>
+              <circle cx="195" cy="105" r="10" fill="none" stroke="#00AA4C" stroke-width="1.5" opacity="0.5"/>
+              <text x="205" y="100" fill="white" font-size="10" font-family="Inter" opacity="0.9">Australia</text>
+              <circle cx="90" cy="88" r="5" fill="#00AEF4" opacity="0.9"/>
+              <circle cx="90" cy="88" r="10" fill="none" stroke="#00AEF4" stroke-width="1.5" opacity="0.5"/>
+              <text x="100" y="83" fill="white" font-size="10" font-family="Inter" opacity="0.9">UK</text>
+              <circle cx="68" cy="108" r="5" fill="#FE0000" opacity="0.9"/>
+              <circle cx="68" cy="108" r="10" fill="none" stroke="#FE0000" stroke-width="1.5" opacity="0.5"/>
+              <text x="78" y="103" fill="white" font-size="10" font-family="Inter" opacity="0.9">USA</text>
+              <circle cx="73" cy="78" r="5" fill="#00AA4C" opacity="0.9"/>
+              <circle cx="73" cy="78" r="10" fill="none" stroke="#00AA4C" stroke-width="1.5" opacity="0.5"/>
+              <text x="83" y="73" fill="white" font-size="10" font-family="Inter" opacity="0.9">Canada</text>
+              <circle cx="205" cy="138" r="5" fill="#00AEF4" opacity="0.9"/>
+              <circle cx="205" cy="138" r="10" fill="none" stroke="#00AEF4" stroke-width="1.5" opacity="0.5"/>
+              <text x="215" y="133" fill="white" font-size="10" font-family="Inter" opacity="0.9">NZ</text>
+              <circle cx="215" cy="95" r="5" fill="#FE0000" opacity="0.9"/>
+              <circle cx="215" cy="95" r="10" fill="none" stroke="#FE0000" stroke-width="1.5" opacity="0.5"/>
+              <text x="225" y="90" fill="white" font-size="10" font-family="Inter" opacity="0.9">S.Korea</text>
+            </svg>
+          </div>
+          <div class="hero-flags">
+            <div class="flag-chip">🇦🇺 Australia</div>
+            <div class="flag-chip">🇺🇸 USA</div>
+            <div class="flag-chip">🇬🇧 UK</div>
+            <div class="flag-chip">🇨🇦 Canada</div>
+            <div class="flag-chip">🇳🇿 New Zealand</div>
+            <div class="flag-chip">🇰🇷 S. Korea</div>
+            <div class="flag-chip">🇫🇮 Finland</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/>
+      </svg>
+    </div>
+  </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Have a question? Get in touch with our team.</p>
-            <a class="button" href="https://wa.me/97798XXXXXXXX">
-                Chat on WhatsApp
+  <!-- SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-badge">What We Offer</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">From your first enquiry to your departure date, we guide you every step of the way.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card service-card-featured" data-animate="fade-up" data-delay="0">
+          <div class="service-icon-wrap service-icon-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="service-title">Study Abroad</h3>
+          <p class="service-desc">Personalised country and university selection guidance for Australia, USA, UK, Canada, New Zealand, South Korea, and Finland.</p>
+          <ul class="service-features">
+            <li>Free initial counselling</li>
+            <li>University shortlisting</li>
+            <li>Course and intake guidance</li>
+            <li>Scholarship guidance</li>
+          </ul>
+          <a href="#contact" class="service-cta">Enquire Now →</a>
+        </div>
+        <div class="service-card service-card-featured" data-animate="fade-up" data-delay="100">
+          <div class="service-icon-wrap service-icon-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="service-title">Test Preparation</h3>
+          <p class="service-desc">Expert coaching for internationally recognised English proficiency tests required for overseas university admission.</p>
+          <ul class="service-features">
+            <li>IELTS preparation</li>
+            <li>PTE Academic coaching</li>
+            <li>TOEFL preparation</li>
+            <li>Mock tests and feedback</li>
+          </ul>
+          <a href="#test-prep" class="service-cta">Learn More →</a>
+        </div>
+        <div class="service-card service-card-featured" data-animate="fade-up" data-delay="200">
+          <div class="service-icon-wrap service-icon-red">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="service-title">Visa Processing</h3>
+          <p class="service-desc">End-to-end student visa assistance — from document preparation to lodgement — for all our destination countries.</p>
+          <ul class="service-features">
+            <li>Visa document checklist</li>
+            <li>Application preparation</li>
+            <li>Interview preparation</li>
+            <li>Pre-departure support</li>
+          </ul>
+          <a href="#contact" class="service-cta">Enquire Now →</a>
+        </div>
+        <div class="service-card" data-animate="fade-up" data-delay="0">
+          <div class="service-icon-wrap service-icon-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="service-title">Career Counselling</h3>
+          <p class="service-desc">One-on-one sessions to map your academic strengths to the right course, university, and country.</p>
+        </div>
+        <div class="service-card" data-animate="fade-up" data-delay="100">
+          <div class="service-icon-wrap service-icon-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="service-title">Documentation</h3>
+          <p class="service-desc">SOP writing guidance, financial document preparation, and complete application documentation support.</p>
+        </div>
+        <div class="service-card" data-animate="fade-up" data-delay="200">
+          <div class="service-icon-wrap service-icon-red">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <h3 class="service-title">Scholarship Guidance</h3>
+          <p class="service-desc">Research and application support for scholarships and financial aid opportunities at your target universities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="section destinations-section" id="destinations">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-badge">Study Abroad</span>
+        <h2 class="section-title">Our Destinations</h2>
+        <p class="section-subtitle">We guide students to seven world-class study destinations.</p>
+      </div>
+      <div class="destinations-grid">
+        <div class="destination-card" data-animate="fade-up" data-delay="0"><div class="destination-flag">🇦🇺</div><div class="destination-content"><h3 class="destination-name">Australia</h3><p class="destination-desc">World-ranked universities, multicultural cities, and generous post-study work options.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="80"><div class="destination-flag">🇺🇸</div><div class="destination-content"><h3 class="destination-name">USA</h3><p class="destination-desc">Home to the world's top universities and a gateway to global career opportunities.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="160"><div class="destination-flag">🇬🇧</div><div class="destination-content"><h3 class="destination-name">UK</h3><p class="destination-desc">Prestigious institutions with shorter degree programmes and a rich academic heritage.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="240"><div class="destination-flag">🇨🇦</div><div class="destination-content"><h3 class="destination-name">Canada</h3><p class="destination-desc">Affordable quality education with strong pathways to permanent residency.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="320"><div class="destination-flag">🇳🇿</div><div class="destination-content"><h3 class="destination-name">New Zealand</h3><p class="destination-desc">Safe, welcoming environment with internationally recognised qualifications.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="400"><div class="destination-flag">🇰🇷</div><div class="destination-content"><h3 class="destination-name">South Korea</h3><p class="destination-desc">Leading Asian education hub with excellent engineering and technology programmes.</p></div></div>
+        <div class="destination-card" data-animate="fade-up" data-delay="480"><div class="destination-flag">🇫🇮</div><div class="destination-content"><h3 class="destination-name">Finland</h3><p class="destination-desc">World-renowned education system with low or no tuition fees at many public universities.</p></div></div>
+      </div>
+      <div class="destinations-cta" data-animate="fade-up">
+        <p>Not sure which country is right for you?</p>
+        <a href="#contact" class="btn btn-primary" id="destinations-contact-btn">Talk to a Counsellor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEST PREP -->
+  <section class="section test-prep-section" id="test-prep">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-badge">English Proficiency</span>
+        <h2 class="section-title">Test Preparation</h2>
+        <p class="section-subtitle">Achieve the scores you need to secure your university offer with our expert coaching.</p>
+      </div>
+      <div class="test-cards">
+        <div class="test-card" data-animate="fade-up" data-delay="0">
+          <div class="test-logo-wrap test-ielts"><span class="test-logo-text">IELTS</span></div>
+          <h3 class="test-name">IELTS</h3>
+          <p class="test-fullname">International English Language Testing System</p>
+          <p class="test-desc">The world's most popular English test for study, work, and migration. Accepted by universities in Australia, UK, Canada, and New Zealand.</p>
+          <a href="#contact" class="btn btn-outline" id="ielts-enquire-btn">Enquire About IELTS</a>
+        </div>
+        <div class="test-card test-card-featured" data-animate="fade-up" data-delay="100">
+          <div class="test-logo-wrap test-pte"><span class="test-logo-text">PTE</span></div>
+          <h3 class="test-name">PTE Academic</h3>
+          <p class="test-fullname">Pearson Test of English Academic</p>
+          <p class="test-desc">A computer-based English test with fast results. Accepted by thousands of universities and colleges worldwide, including institutions in Australia.</p>
+          <a href="#contact" class="btn btn-primary" id="pte-enquire-btn">Enquire About PTE</a>
+        </div>
+        <div class="test-card" data-animate="fade-up" data-delay="200">
+          <div class="test-logo-wrap test-toefl"><span class="test-logo-text">TOEFL</span></div>
+          <h3 class="test-name">TOEFL</h3>
+          <p class="test-fullname">Test of English as a Foreign Language</p>
+          <p class="test-desc">Widely accepted by universities in the USA and Canada. The iBT (internet-based) format is the most commonly required version.</p>
+          <a href="#contact" class="btn btn-outline" id="toefl-enquire-btn">Enquire About TOEFL</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-visual" data-animate="fade-right">
+        <div class="about-img-stack">
+          <img src="imgs/photos-1.jpeg" alt="Students at Alpine Educational Consultancy" class="about-img about-img-1" loading="lazy" />
+          <img src="imgs/photos-2.jpeg" alt="Study abroad counselling session" class="about-img about-img-2" loading="lazy" />
+          <div class="about-badge-card">
+            <span class="about-badge-icon">📍</span>
+            <div>
+              <strong>Ghorahi-15, Dang</strong>
+              <small>Near Mahara Petrol Pump</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content" data-animate="fade-left">
+        <span class="section-badge">Who We Are</span>
+        <h2 class="section-title">About Alpine Educational Consultancy</h2>
+        <p class="about-text">Alpine Educational Consultancy Pvt. Ltd. is a registered education consultancy based in Ghorahi-15, Dang, Nepal. We are dedicated to helping students from the Dang region and across Nepal achieve their dream of studying abroad.</p>
+        <p class="about-text">Our team of experienced counsellors provides honest, personalised guidance — from choosing the right country and university to completing your visa application. We are committed to transparency and do not make promises we cannot keep.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <span class="about-value-icon">✅</span>
+            <div><strong>Honest Guidance</strong><p>We give you accurate information so you can make informed decisions.</p></div>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon">🤝</span>
+            <div><strong>Personalised Support</strong><p>Every student's profile is unique — our advice is tailored to you.</p></div>
+          </div>
+          <div class="about-value">
+            <span class="about-value-icon">🌐</span>
+            <div><strong>End-to-End Service</strong><p>From counselling to pre-departure, we're with you throughout.</p></div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary" id="about-contact-btn">Contact Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Ready to start your study abroad journey? Reach out to us today for a free initial consultation.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-animate="fade-right">
+          <div class="contact-card">
+            <h3 class="contact-card-title">Get in Touch</h3>
+            <a href="tel:+9779847881874" class="contact-item contact-item-link" id="contact-phone-link">
+              <div class="contact-item-icon contact-icon-green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-item-body">
+                <span class="contact-item-label">Phone</span>
+                <span class="contact-item-value">9847881874</span>
+              </div>
             </a>
-        </section>
-    </main>
+            <a href="tel:+97782564015" class="contact-item contact-item-link" id="contact-landline-link">
+              <div class="contact-item-icon contact-icon-blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-item-body">
+                <span class="contact-item-label">Office (Landline)</span>
+                <span class="contact-item-value">082-564015</span>
+              </div>
+            </a>
+            <a href="mailto:alpineeducationalconsultancy@gmail.com" class="contact-item contact-item-link" id="contact-email-link">
+              <div class="contact-item-icon contact-icon-red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="contact-item-body">
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">alpineeducationalconsultancy@gmail.com</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-item-icon contact-icon-green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-body">
+                <span class="contact-item-label">Address</span>
+                <span class="contact-item-value">Ghorahi-15, Dang, Nepal<br /><small>Near Mahara Petrol Pump, Tulsipur Chowk</small></span>
+              </div>
+            </div>
+            <div class="contact-wa-block">
+              <p class="contact-wa-label">Prefer WhatsApp?</p>
+              <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-whatsapp-full" id="contact-whatsapp-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                Message us on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap" data-animate="fade-left">
+          <form class="contact-form" id="enquiry-form" novalidate>
+            <h3 class="contact-form-title">Send an Enquiry</h3>
+            <p class="contact-form-subtitle">Fill out the form and we'll get back to you as soon as possible.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name" class="form-label">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="full-name" name="full-name" class="form-input" placeholder="Your full name" required autocomplete="name" />
+                <span class="form-error" id="full-name-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="phone-number" class="form-label">Phone Number <span aria-hidden="true">*</span></label>
+                <input type="tel" id="phone-number" name="phone" class="form-input" placeholder="98XXXXXXXX" required autocomplete="tel" />
+                <span class="form-error" id="phone-error" role="alert"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email-address" class="form-label">Email Address</label>
+              <input type="email" id="email-address" name="email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+              <span class="form-error" id="email-error" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="service-interest" class="form-label">Service of Interest <span aria-hidden="true">*</span></label>
+                <select id="service-interest" name="service" class="form-select" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="study-abroad">Study Abroad</option>
+                  <option value="test-prep">Test Preparation (IELTS/PTE/TOEFL)</option>
+                  <option value="visa">Visa Processing</option>
+                  <option value="counselling">Career Counselling</option>
+                  <option value="documentation">Documentation Assistance</option>
+                  <option value="scholarship">Scholarship Guidance</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="form-error" id="service-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="destination-country" class="form-label">Preferred Destination</label>
+                <select id="destination-country" name="destination" class="form-select">
+                  <option value="" disabled selected>Select country</option>
+                  <option value="australia">Australia</option>
+                  <option value="usa">USA</option>
+                  <option value="uk">UK</option>
+                  <option value="canada">Canada</option>
+                  <option value="new-zealand">New Zealand</option>
+                  <option value="south-korea">South Korea</option>
+                  <option value="finland">Finland</option>
+                  <option value="undecided">Not decided yet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your educational background and your study abroad plans..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn">
+              <span class="btn-text">Send Enquiry</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Thank you! We'll be in touch with you soon.</span>
+            </div>
+            <p class="form-note">* Required fields. We respect your privacy and will only use your details to respond to your enquiry.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 Your Consultancy. All rights reserved.</p>
-    </footer>
+  <!-- MAP -->
+  <section class="map-section" aria-label="Office location map">
+    <div class="map-label">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      Ghorahi-15, Dang — Near Mahara Petrol Pump, Tulsipur Chowk
+    </div>
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28211.0!2d82.4960!3d28.0470!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997136c9b4ffb41%3A0x8c89fd2e71c9bde2!2sGhorahi%2C%20Dang%2C%20Nepal!5e0!3m2!1sen!2snp!4v1"
+      width="100%"
+      height="340"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Alpine Educational Consultancy location — Ghorahi-15, Dang, Nepal"
+    ></iframe>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="imgs/main-logo.PNG" alt="Alpine Educational Consultancy" class="footer-logo" />
+          <p class="footer-about">Your trusted study abroad partner in Ghorahi, Dang, Nepal. Expert guidance for university applications, visa processing, and test preparation.</p>
+          <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" id="footer-whatsapp-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services" class="footer-link">Study Abroad</a></li>
+            <li><a href="#test-prep" class="footer-link">Test Preparation</a></li>
+            <li><a href="#services" class="footer-link">Visa Processing</a></li>
+            <li><a href="#services" class="footer-link">Career Counselling</a></li>
+            <li><a href="#services" class="footer-link">Documentation</a></li>
+            <li><a href="#services" class="footer-link">Scholarship Guidance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#destinations" class="footer-link">🇦🇺 Australia</a></li>
+            <li><a href="#destinations" class="footer-link">🇺🇸 USA</a></li>
+            <li><a href="#destinations" class="footer-link">🇬🇧 UK</a></li>
+            <li><a href="#destinations" class="footer-link">🇨🇦 Canada</a></li>
+            <li><a href="#destinations" class="footer-link">🇳🇿 New Zealand</a></li>
+            <li><a href="#destinations" class="footer-link">🇰🇷 South Korea</a></li>
+            <li><a href="#destinations" class="footer-link">🇫🇮 Finland</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+9779847881874" class="footer-link">9847881874</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+97782564015" class="footer-link">082-564015 (Office)</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:alpineeducationalconsultancy@gmail.com" class="footer-link">alpineeducationalconsultancy@gmail.com</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Ghorahi-15, Dang, Nepal. Near Mahara Petrol Pump, Tulsipur Chowk</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Alpine Educational Consultancy Pvt. Ltd. All rights reserved.</p>
+        <p class="footer-disclaimer">We do not guarantee admission, visa approval, or scholarships. All decisions rest with the respective institutions and immigration authorities.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="float-whatsapp-btn" aria-label="Chat with us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    <span class="whatsapp-float-tooltip">Chat with us</span>
+  </a>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
