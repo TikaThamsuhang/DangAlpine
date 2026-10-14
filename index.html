@@ -14,7 +14,8 @@
   <meta property="og:image" content="imgs/main-logo.PNG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Plus Jakarta Sans: modern, professional, ideal for education consultancies -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +23,10 @@
   <!-- TOP BAR -->
   <div class="topbar" id="topbar">
     <div class="container topbar-inner">
-      <span class="topbar-tagline">🎓 Your Gateway to Global Education — Ghorahi, Dang, Nepal</span>
+      <span class="topbar-tagline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Your Gateway to Global Education — Ghorahi, Dang, Nepal
+      </span>
       <div class="topbar-contacts">
         <a href="tel:+9779847881874" class="topbar-link" aria-label="Call us">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.1 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -47,14 +51,15 @@
         <a href="#services" class="nav-link">Services</a>
         <a href="#destinations" class="nav-link">Destinations</a>
         <a href="#test-prep" class="nav-link">Test Prep</a>
+        <a href="#success-stories" class="nav-link">Success Stories</a>
         <a href="#about" class="nav-link">About Us</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="nav-cta-group">
-        <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="nav-whatsapp-btn" aria-label="Chat on WhatsApp">
+        <!-- <a href="https://wa.me/9779847881874?text=Hello%20Alpine%20Educational%20Consultancy%2C%20I%20would%20like%20to%20enquire%20about%20studying%20abroad." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="nav-whatsapp-btn" aria-label="Chat on WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           WhatsApp
-        </a>
+        </a> -->
         <a href="#contact" class="btn btn-primary" id="nav-enquire-btn">Enquire Now</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-links">
@@ -72,7 +77,7 @@
     </div>
     <div class="container hero-inner">
       <div class="hero-content" data-animate="fade-up">
-        <span class="hero-badge">🌏 Study Abroad Consultancy — Dang, Nepal</span>
+        <span class="hero-badge"> Study Abroad Consultancy — Dang, Nepal</span>
         <h1 class="hero-title">Your Dream to<br /><span class="hero-title-accent">Study Abroad</span><br />Starts Here</h1>
         <p class="hero-subtitle">Expert guidance for university applications, visa processing, test preparation, and scholarships. We help students from Dang reach universities in Australia, USA, UK, Canada, New Zealand, South Korea, and Finland.</p>
         <div class="hero-actions">
@@ -295,6 +300,140 @@
     </div>
   </section>
 
+  <!-- SUCCESS STORIES GALLERY -->
+  <section class="section gallery-section" id="success-stories">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-badge gallery-badge">Visa Granted &amp; COE Accepted</span>
+        <h2 class="section-title">Our Students' Success Stories</h2>
+        <p class="section-subtitle">Congratulations to all our students who received their visas and COE acceptances. Your success is our pride.</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-1.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-2.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-3.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-4.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-5.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-6.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-7.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-8.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-9.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-10.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-11.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-12.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-13.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-14.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-15.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-16.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-17.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-18.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-19.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-20.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="0">
+          <img src="imgs/Granted/granted-21.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="40">
+          <img src="imgs/Granted/granted-22.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="80">
+          <img src="imgs/Granted/granted-23.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="120">
+          <img src="imgs/Granted/granted-24.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+        <div class="gallery-item" data-animate="fade-up" data-delay="160">
+          <img src="imgs/Granted/granted-25.jpeg" alt="Alpine student visa granted" class="gallery-img" loading="lazy" />
+          <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg></div>
+        </div>
+      </div>
+      <div class="gallery-cta" data-animate="fade-up">
+        <p>Join our growing list of successful students</p>
+        <a href="#contact" class="btn btn-primary" id="gallery-enquire-btn">Start Your Journey Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+      <p class="lightbox-counter" id="lightbox-counter"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+
   <!-- ABOUT -->
   <section class="section about-section" id="about">
     <div class="container about-grid">
@@ -303,8 +442,10 @@
           <img src="imgs/photos-1.jpeg" alt="Students at Alpine Educational Consultancy" class="about-img about-img-1" loading="lazy" />
           <img src="imgs/photos-2.jpeg" alt="Study abroad counselling session" class="about-img about-img-2" loading="lazy" />
           <div class="about-badge-card">
-            <span class="about-badge-icon">📍</span>
-            <div>
+            <span class="about-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00AA4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div class="location">
               <strong>Ghorahi-15, Dang</strong>
               <small>Near Mahara Petrol Pump</small>
             </div>
@@ -318,15 +459,21 @@
         <p class="about-text">Our team of experienced counsellors provides honest, personalised guidance — from choosing the right country and university to completing your visa application. We are committed to transparency and do not make promises we cannot keep.</p>
         <div class="about-values">
           <div class="about-value">
-            <span class="about-value-icon">✅</span>
+            <span class="about-value-icon about-value-icon--green">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
             <div><strong>Honest Guidance</strong><p>We give you accurate information so you can make informed decisions.</p></div>
           </div>
           <div class="about-value">
-            <span class="about-value-icon">🤝</span>
+            <span class="about-value-icon about-value-icon--blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
             <div><strong>Personalised Support</strong><p>Every student's profile is unique — our advice is tailored to you.</p></div>
           </div>
           <div class="about-value">
-            <span class="about-value-icon">🌐</span>
+            <span class="about-value-icon about-value-icon--red">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
             <div><strong>End-to-End Service</strong><p>From counselling to pre-departure, we're with you throughout.</p></div>
           </div>
         </div>
