@@ -2462,13 +2462,17 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   .topbar-contacts .topbar-link:not(:first-child) { display: none; }
 
   /* === HERO === */
-  .hero-title   { font-size: 28px; line-height: 1.25; }
+  .hero-title   { font-size: 30px; line-height: 1.25; }
   .hero-subtitle{ font-size: 14px; }
   .hero-badge   { font-size: 10px; }
 
+  .btn {
+        border: 1px solid !important;
+  }
+
   /* Hero image and stats on small mobile */
   .hero-visual  { margin-top: 6px; }
-  .hero-img-wrap{ max-width: 320px; }
+  .hero-img-wrap{ max-width: fit-content; }
   .hero-student-img { max-width: fit-content; max-height: 270px; }
   .hero-stat    { min-width: 155px; padding: 10px 14px; }
   .hero-stat-number{ font-size: 19px; }
