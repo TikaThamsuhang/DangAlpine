@@ -230,29 +230,74 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+/* ---- Load More Gallery Cards ---- */
+(function initLoadMore() {
+  const loadMoreBtn = document.getElementById('gallery-load-more');
+  if (!loadMoreBtn) return;
+
+  const lmText  = loadMoreBtn.querySelector('.lm-text');
+  const lmCount = loadMoreBtn.querySelector('.lm-count');
+  const lmIcon  = loadMoreBtn.querySelector('svg');
+  const VISIBLE = 8; // number of cards visible by default
+  let expanded  = false;
+
+  loadMoreBtn.addEventListener('click', () => {
+    expanded = !expanded;
+
+    if (expanded) {
+      // Reveal all hidden cards with fade-in
+      document.querySelectorAll('.success-card.sc-hidden').forEach(card => {
+        card.classList.remove('sc-hidden');
+        card.classList.remove('is-visible');
+        void card.offsetHeight;
+        setTimeout(() => card.classList.add('is-visible'), 20);
+      });
+      lmText.textContent     = 'Show less';
+      lmCount.textContent    = '';
+      lmIcon.style.transform = 'rotate(180deg)';
+    } else {
+      // Re-hide the extra cards
+      const allCards = Array.from(document.querySelectorAll('.success-card'));
+      const hiddenCount = allCards.length - VISIBLE;
+      allCards.slice(VISIBLE).forEach(card => {
+        card.classList.add('sc-hidden');
+        card.classList.remove('is-visible');
+      });
+      lmText.textContent     = 'Load more';
+      lmCount.textContent    = `(${hiddenCount})`;
+      lmIcon.style.transform = '';
+      // Scroll back to section top so user isn't left at bottom
+      const section = document.getElementById('success-stories');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+})();
+
 /* ---- Gallery Lightbox ---- */
 (function initLightbox() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  if (!galleryItems.length) return;
+  // Collect all gallery images from success cards
+  function getGalleryImages() {
+    return Array.from(document.querySelectorAll('.sc-photo.gallery-img')).map(img => ({
+      src: img.src,
+      alt: img.alt
+    }));
+  }
 
-  const lightbox     = document.getElementById('lightbox');
-  const lbImg        = document.getElementById('lightbox-img');
-  const lbCounter    = document.getElementById('lightbox-counter');
-  const lbClose      = document.getElementById('lightbox-close');
-  const lbPrev       = document.getElementById('lightbox-prev');
-  const lbNext       = document.getElementById('lightbox-next');
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lightbox-img');
+  const lbCounter = document.getElementById('lightbox-counter');
+  const lbClose   = document.getElementById('lightbox-close');
+  const lbPrev    = document.getElementById('lightbox-prev');
+  const lbNext    = document.getElementById('lightbox-next');
 
   if (!lightbox || !lbImg) return;
 
-  const images = Array.from(galleryItems).map(item => {
-    const img = item.querySelector('.gallery-img');
-    return { src: img.src, alt: img.alt };
-  });
-
+  let images = [];
   let currentIndex = 0;
 
   function openLightbox(index) {
-    currentIndex = index;
+    images = getGalleryImages(); // refresh (in case load-more revealed more)
+    currentIndex = Math.min(index, images.length - 1);
     showImage(currentIndex);
     lightbox.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
@@ -266,7 +311,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
   function showImage(index) {
     lbImg.style.animation = 'none';
-    // Force reflow to re-trigger animation
     void lbImg.offsetHeight;
     lbImg.style.animation = '';
     lbImg.src = images[index].src;
@@ -275,55 +319,54 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }
 
   function prev() {
+    images = getGalleryImages();
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
   }
 
   function next() {
+    images = getGalleryImages();
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
   }
 
-  // Attach click to each gallery item
-  galleryItems.forEach((item, idx) => {
-    item.addEventListener('click', () => openLightbox(idx));
-    item.setAttribute('tabindex', '0');
-    item.setAttribute('role', 'button');
-    item.setAttribute('aria-label', 'View image ' + (idx + 1));
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openLightbox(idx);
-      }
+  // Click on photo wrap opens lightbox
+  document.querySelectorAll('.sc-photo-wrap').forEach((wrap, idx) => {
+    wrap.style.cursor = 'pointer';
+    wrap.addEventListener('click', () => openLightbox(idx));
+  });
+
+  // Click on "View photo →" link also opens lightbox
+  document.querySelectorAll('.sc-view-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const idx = parseInt(link.dataset.index || '0', 10);
+      openLightbox(idx);
     });
   });
 
   lbClose.addEventListener('click', closeLightbox);
-  lbPrev.addEventListener('click',  prev);
-  lbNext.addEventListener('click',  next);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
 
-  // Click backdrop to close
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (lightbox.hasAttribute('hidden')) return;
-    if (e.key === 'Escape')      closeLightbox();
-    if (e.key === 'ArrowLeft')   prev();
-    if (e.key === 'ArrowRight')  next();
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  prev();
+    if (e.key === 'ArrowRight') next();
   });
 
-  // Touch swipe support
+  // Touch swipe
   let touchStartX = 0;
   lightbox.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].clientX;
   }, { passive: true });
   lightbox.addEventListener('touchend', (e) => {
     const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 50) {
-      dx < 0 ? next() : prev();
-    }
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
   }, { passive: true });
 })();
