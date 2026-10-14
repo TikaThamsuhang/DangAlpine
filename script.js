@@ -50,40 +50,107 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-/* ---- Mobile hamburger menu ---- */
-const hamburger = document.getElementById('hamburger');
-const navLinksEl = document.getElementById('nav-links');
+/* ---- Mobile Drawer ---- */
+(function initMobileDrawer() {
+  var hamburger = document.getElementById('hamburger');
+  var drawer    = document.getElementById('mobile-drawer');
+  var overlay   = document.getElementById('drawer-overlay');
+  var closeBtn  = document.getElementById('drawer-close');
 
-if (hamburger && navLinksEl) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = navLinksEl.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (!hamburger || !drawer) return;
+
+  function openDrawer() {
+    drawer.removeAttribute('hidden');
+    // Force reflow so transition plays
+    drawer.offsetHeight;
+    drawer.classList.add('open');
+    if (overlay) {
+      overlay.style.display = 'block';
+      overlay.offsetHeight;
+      overlay.classList.add('active');
+    }
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    document.body.style.overflowX = 'clip';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    document.body.style.overflowX = '';
+    // Hide after transition
+    setTimeout(function() {
+      if (!drawer.classList.contains('open')) {
+        drawer.setAttribute('hidden', '');
+        if (overlay) overlay.style.display = 'none';
+      }
+    }, 310);
+  }
+
+  hamburger.addEventListener('click', function() {
+    if (drawer.classList.contains('open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
   });
 
-  // Close on nav link click
-  navLinksEl.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinksEl.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+  // Close on overlay click
+  if (overlay) {
+    overlay.addEventListener('click', closeDrawer);
+  }
+
+  // Close button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+  }
+
+  // Close on any drawer link click
+  drawer.querySelectorAll('[data-drawer-link]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      closeDrawer();
     });
   });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (navLinksEl.classList.contains('open') &&
-        !navLinksEl.contains(e.target) &&
-        !hamburger.contains(e.target)) {
-      navLinksEl.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+  // Logo link inside drawer also closes
+  var drawerLogoLink = document.getElementById('drawer-logo-link');
+  if (drawerLogoLink) {
+    drawerLogoLink.addEventListener('click', closeDrawer);
+  }
+
+  // ESC key closes
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+      hamburger.focus();
     }
   });
-}
+
+  // Update active drawer link to match page scroll
+  var drawerLinks = drawer.querySelectorAll('.drawer-link[href^="#"]');
+  function updateDrawerActive() {
+    var scrollY = window.scrollY + 120;
+    drawerLinks.forEach(function(link) {
+      var id = link.getAttribute('href').slice(1);
+      var section = document.getElementById(id);
+      if (section) {
+        var top  = section.offsetTop;
+        var bot  = top + section.offsetHeight;
+        if (scrollY >= top && scrollY < bot) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      }
+    });
+  }
+  window.addEventListener('scroll', updateDrawerActive, { passive: true });
+})();
+
 
 /* ---- Scroll reveal animations ---- */
 function initScrollReveal() {
@@ -370,3 +437,138 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
   }, { passive: true });
 })();
+
+/* ---- Hero Stats Custom Horizontal Scrollbar Controller ---- */
+(function initHeroStatsScrollbar() {
+  const container = document.getElementById('hero-stats-container');
+  const scrollbar = document.getElementById('hero-stats-scrollbar');
+  const track = document.getElementById('hero-stats-scroll-track');
+  const thumb = document.getElementById('hero-stats-scroll-thumb');
+  const label = document.getElementById('hero-stats-scroll-label');
+
+  if (!container || !track || !thumb) return;
+
+  function update() {
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    if (maxScroll <= 0) {
+      if (scrollbar) scrollbar.style.display = 'none';
+      return;
+    }
+    if (scrollbar && window.innerWidth <= 768) {
+      scrollbar.style.display = 'flex';
+    }
+
+    const trackWidth = track.clientWidth;
+    const thumbWidth = thumb.clientWidth;
+    const maxTravel = trackWidth - thumbWidth - 4; // 2px padding each side
+
+    const ratio = Math.max(0, Math.min(1, container.scrollLeft / maxScroll));
+    const posX = ratio * maxTravel;
+    thumb.style.transform = `translateX(${posX}px)`;
+
+    if (label) {
+      if (ratio > 0.65) {
+        label.innerHTML = `<span>Scroll</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`;
+      } else {
+        label.innerHTML = `<span>Scroll</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
+      }
+    }
+  }
+
+  // Real-time synchronization during scroll
+  container.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+
+  // Tap/Click on track to jump-scroll
+  track.addEventListener('click', (e) => {
+    if (e.target === thumb || thumb.contains(e.target)) return;
+    const rect = track.getBoundingClientRect();
+    const clickX = e.clientX - rect.left - (thumb.clientWidth / 2);
+    const maxTravel = track.clientWidth - thumb.clientWidth - 4;
+    const ratio = Math.max(0, Math.min(1, clickX / maxTravel));
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    container.scrollTo({ left: ratio * maxScroll, behavior: 'smooth' });
+  });
+
+  // Touch drag on thumb / track
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  function onDragStart(clientX) {
+    isDragging = true;
+    startX = clientX;
+    startScrollLeft = container.scrollLeft;
+    thumb.style.transition = 'none';
+  }
+
+  function onDragMove(clientX) {
+    if (!isDragging) return;
+    const dx = clientX - startX;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const maxTravel = track.clientWidth - thumb.clientWidth - 4;
+    if (maxTravel <= 0) return;
+    const scrollDelta = (dx / maxTravel) * maxScroll;
+    container.scrollLeft = startScrollLeft + scrollDelta;
+  }
+
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    thumb.style.transition = 'transform 0.08s ease-out';
+  }
+
+  thumb.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), { passive: true });
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging) {
+      onDragMove(e.touches[0].clientX);
+      e.preventDefault();
+    }
+  }, { passive: false });
+  window.addEventListener('touchend', onDragEnd, { passive: true });
+
+  // Mouse drag support
+  thumb.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    onDragStart(e.clientX);
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      e.preventDefault();
+      onDragMove(e.clientX);
+    }
+  });
+  window.addEventListener('mouseup', onDragEnd);
+
+  // Initialize on load
+  setTimeout(update, 50);
+  setTimeout(update, 300);
+})();
+
+/* ---- Hero Stats — Line-bar progress indicator ---- */
+(function initHeroStatsLineBar() {
+  var container = document.getElementById('hero-stats-container');
+  var track     = document.getElementById('hero-stats-line-track');
+  var bar       = document.getElementById('hero-stats-line-bar');
+  if (!container || !track || !bar) return;
+  function update() {
+    var maxScroll = container.scrollWidth - container.clientWidth;
+    if (maxScroll <= 0 || window.innerWidth > 768) {
+      track.style.display = 'none';
+      return;
+    }
+    track.style.display = 'block';
+    var trackW    = track.clientWidth;
+    var barW      = bar.clientWidth;
+    var maxTravel = trackW > barW ? trackW - barW : 0;
+    var ratio     = container.scrollLeft / maxScroll;
+    if (ratio < 0) ratio = 0;
+    if (ratio > 1) ratio = 1;
+    bar.style.transform = 'translateX(' + (ratio * maxTravel) + 'px)';
+  }
+  container.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  setTimeout(update, 60);
+  setTimeout(update, 350);
+})();
+
