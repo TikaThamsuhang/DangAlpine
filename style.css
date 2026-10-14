@@ -383,9 +383,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   padding: 5px 16px;
   background: var(--green-light);
   color: var(--green-dark);
-  /* border-radius: 1px solid; */
-  /* border-radius: var(--radius-full); */
-  border-color: var(--green-dark);
+  border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
