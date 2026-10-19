@@ -438,137 +438,161 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }, { passive: true });
 })();
 
-/* ---- Hero Stats Custom Horizontal Scrollbar Controller ---- */
-(function initHeroStatsScrollbar() {
-  const container = document.getElementById('hero-stats-container');
-  const scrollbar = document.getElementById('hero-stats-scrollbar');
-  const track = document.getElementById('hero-stats-scroll-track');
-  const thumb = document.getElementById('hero-stats-scroll-thumb');
-  const label = document.getElementById('hero-stats-scroll-label');
 
-  if (!container || !track || !thumb) return;
 
-  function update() {
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    if (maxScroll <= 0) {
-      if (scrollbar) scrollbar.style.display = 'none';
-      return;
-    }
-    if (scrollbar && window.innerWidth <= 768) {
-      scrollbar.style.display = 'flex';
-    }
 
-    const trackWidth = track.clientWidth;
-    const thumbWidth = thumb.clientWidth;
-    const maxTravel = trackWidth - thumbWidth - 4; // 2px padding each side
-
-    const ratio = Math.max(0, Math.min(1, container.scrollLeft / maxScroll));
-    const posX = ratio * maxTravel;
-    thumb.style.transform = `translateX(${posX}px)`;
-
-    if (label) {
-      if (ratio > 0.65) {
-        label.innerHTML = `<span>Scroll</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`;
-      } else {
-        label.innerHTML = `<span>Scroll</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
-      }
-    }
-  }
-
-  // Real-time synchronization during scroll
-  container.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-
-  // Tap/Click on track to jump-scroll
-  track.addEventListener('click', (e) => {
-    if (e.target === thumb || thumb.contains(e.target)) return;
-    const rect = track.getBoundingClientRect();
-    const clickX = e.clientX - rect.left - (thumb.clientWidth / 2);
-    const maxTravel = track.clientWidth - thumb.clientWidth - 4;
-    const ratio = Math.max(0, Math.min(1, clickX / maxTravel));
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    container.scrollTo({ left: ratio * maxScroll, behavior: 'smooth' });
-  });
-
-  // Touch drag on thumb / track
-  let isDragging = false;
-  let startX = 0;
-  let startScrollLeft = 0;
-
-  function onDragStart(clientX) {
-    isDragging = true;
-    startX = clientX;
-    startScrollLeft = container.scrollLeft;
-    thumb.style.transition = 'none';
-  }
-
-  function onDragMove(clientX) {
-    if (!isDragging) return;
-    const dx = clientX - startX;
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    const maxTravel = track.clientWidth - thumb.clientWidth - 4;
-    if (maxTravel <= 0) return;
-    const scrollDelta = (dx / maxTravel) * maxScroll;
-    container.scrollLeft = startScrollLeft + scrollDelta;
-  }
-
-  function onDragEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    thumb.style.transition = 'transform 0.08s ease-out';
-  }
-
-  thumb.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), { passive: true });
-  window.addEventListener('touchmove', (e) => {
-    if (isDragging) {
-      onDragMove(e.touches[0].clientX);
-      e.preventDefault();
-    }
-  }, { passive: false });
-  window.addEventListener('touchend', onDragEnd, { passive: true });
-
-  // Mouse drag support
-  thumb.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    onDragStart(e.clientX);
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      e.preventDefault();
-      onDragMove(e.clientX);
-    }
-  });
-  window.addEventListener('mouseup', onDragEnd);
-
-  // Initialize on load
-  setTimeout(update, 50);
-  setTimeout(update, 300);
-})();
-
-/* ---- Hero Stats — Line-bar progress indicator ---- */
+/* ---- Hero Stats — Mobile Horizontal Scroll Thumb Controller ---- */
 (function initHeroStatsLineBar() {
   var container = document.getElementById('hero-stats-container');
-  var track     = document.getElementById('hero-stats-line-track');
-  var bar       = document.getElementById('hero-stats-line-bar');
+  var track = document.getElementById('hero-stats-line-track');
+  var bar = document.getElementById('hero-stats-line-bar');
+
   if (!container || !track || !bar) return;
+
+  var hideTimer = null;
+  var hasInteracted = false;
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function showIndicator() {
+    if (!isMobile()) return;
+    track.classList.add('is-visible');
+  }
+
+  function hideIndicator() {
+    track.classList.remove('is-visible');
+  }
+
+  function cancelHideTimer() {
+    if (hideTimer !== null) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+  }
+
   function update() {
     var maxScroll = container.scrollWidth - container.clientWidth;
-    if (maxScroll <= 0 || window.innerWidth > 768) {
+
+    if (!isMobile() || maxScroll <= 1) {
       track.style.display = 'none';
+      hideIndicator();
       return;
     }
+
     track.style.display = 'block';
-    var trackW    = track.clientWidth;
-    var barW      = bar.clientWidth;
-    var maxTravel = trackW > barW ? trackW - barW : 0;
-    var ratio     = container.scrollLeft / maxScroll;
-    if (ratio < 0) ratio = 0;
-    if (ratio > 1) ratio = 1;
-    bar.style.transform = 'translateX(' + (ratio * maxTravel) + 'px)';
+
+    var trackWidth = track.clientWidth;
+    var barWidth = bar.clientWidth;
+    var maxTravel = Math.max(0, trackWidth - barWidth);
+    var ratio = container.scrollLeft / maxScroll;
+
+    ratio = Math.max(0, Math.min(1, ratio));
+
+    bar.style.transform =
+      'translateX(' + (ratio * maxTravel) + 'px)';
   }
-  container.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
+
+  // Keep the indicator visible during horizontal scrolling.
+  function handleStatsScroll() {
+    hasInteracted = true;
+
+    cancelHideTimer();
+    showIndicator();
+    update();
+
+    // Begin fading out immediately after scrolling stops.
+    // The CSS transition controls the 0.5-second fade.
+    hideTimer = setTimeout(function () {
+      hideIndicator();
+      hideTimer = null;
+    }, 100);
+  }
+
+  // Initial load: show the indicator without an auto-hide timer.
+  showIndicator();
+  update();
+
+  // Show when hero stats enters the viewport for the first time.
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !hasInteracted) {
+          showIndicator();
+          update();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(container);
+  }
+
+  // Horizontal scrolling.
+  container.addEventListener('scroll', handleStatsScroll, {
+    passive: true
+  });
+
+  // Keep visible while the user touches the stats.
+  container.addEventListener('touchstart', function () {
+    cancelHideTimer();
+    showIndicator();
+  }, { passive: true });
+
+  container.addEventListener('touchmove', handleStatsScroll, {
+    passive: true
+  });
+
+  // Hide as soon as the touch gesture ends.
+  container.addEventListener('touchend', function () {
+    cancelHideTimer();
+    hideIndicator();
+  }, { passive: true });
+
+  container.addEventListener('touchcancel', function () {
+    cancelHideTimer();
+    hideIndicator();
+  }, { passive: true });
+
+  // Synchronize the thumb after resizing.
+  window.addEventListener('resize', function () {
+    update();
+
+    if (!isMobile()) {
+      cancelHideTimer();
+    } else if (!hasInteracted) {
+      showIndicator();
+    }
+  }, { passive: true });
+
+  window.addEventListener('load', function () {
+    update();
+
+    if (!hasInteracted) {
+      showIndicator();
+    }
+  });
+
   setTimeout(update, 60);
   setTimeout(update, 350);
 })();
 
+/* ---- Test Prep Enquire Buttons — Pre-select service in Contact Form ---- */
+(function initTestPrepEnquire() {
+  var btns = [
+    document.getElementById('ielts-enquire-btn'),
+    document.getElementById('pte-enquire-btn'),
+    document.getElementById('toefl-enquire-btn')
+  ];
+  var serviceSelect = document.getElementById('service-interest');
+  if (!serviceSelect) return;
+
+  btns.forEach(function (btn) {
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      serviceSelect.value = 'test-prep';
+      var event = new Event('change', { bubbles: true });
+      serviceSelect.dispatchEvent(event);
+    });
+  });
+})();
