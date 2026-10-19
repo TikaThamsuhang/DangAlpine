@@ -130,6 +130,18 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
 }
 .btn-primary:active { transform: translateY(0); }
 
+.btn-org-blue{
+    background: var(--org-blue);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,170,76,0.3);
+}
+.btn-org-blue:hover {
+  background: var(--org-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,170,76,0.4);
+}
+.btn-org-blue:active { transform: translateY(0); }
+
 .btn-whatsapp {
   border-color: var(--whatsapp);
   color: var(--whatsapp);
@@ -267,7 +279,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   flex-direction: column;
   gap: 5px;
   padding: 8px;
-  margin-left: 8px;
+  /* margin-left: 8px; */
 }
 .hamburger span {
   display: block;
@@ -1533,7 +1545,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   cursor: pointer;
 }
 .form-textarea { resize: vertical; min-height: 100px; }
-.form-error { font-size: 12px; color: var(--red); min-height: 16px; }
+.form-error { font-size: 12px; color: var(--red); min-height: 16px; display: none;}
 .form-note {
   font-size: 12px;
   color: var(--text-light);
@@ -3032,7 +3044,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   .dest-arrow-btn     { display: none; }
   .dest-info          { padding: 10px; }
   .dest-flag-name {align-items: center;}
-  .dest-flag-img      { width: 24px; height: 16px; }
+  .dest-flag-img      { width: 24px; height: 18px;  border-radius: 3px;}
 
   /* === GALLERY === */
   .success-cards-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -3086,6 +3098,15 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   /* === BUTTONS === */
   .btn { font-size: 13px; padding: 10px 20px; }
   .btn-load-more { font-size: 13px; padding: 10px 22px; }
+    .section-header{
+    margin-bottom: 30px !important;
+  }
+  .destinations-grid{
+    margin-bottom: 0;
+  }
+  .destination-card{
+    border-radius: var(--radius-sm) !important;
+  }
 }
 
 /* ---- Very small: ≤360px ---- */
