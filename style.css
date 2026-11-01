@@ -190,6 +190,10 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
 }
 .topbar-contacts {
   display: flex;
