@@ -133,12 +133,12 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; line-height: 1.25; }
 .btn-org-blue{
     background: var(--org-blue);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(0,170,76,0.3);
+  box-shadow: 0 4px 16px rgb(0 19 170 / 35%)
 }
 .btn-org-blue:hover {
   background: var(--org-blue-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,170,76,0.4);
+  box-shadow: 0 4px 16px rgb(0 19 170 / 35%)
 }
 .btn-org-blue:active { transform: translateY(0); }
 
