@@ -286,13 +286,40 @@ if (form) {
 }
 
 /* ---- Smooth scroll for hash links ---- */
+/**
+ * Robust scroll-to-section that:
+ * 1. Accounts for the sticky navbar height.
+ * 2. Waits for two animation frames so any lazy-loaded content
+ *    has had a chance to reflow before we measure positions —
+ *    this fixes the "first visit lands wrong" bug.
+ * 3. Forces a hard scroll via window.scrollTo so it always
+ *    arrives at exactly the right position.
+ */
+function scrollToSection(targetId) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  // Wait for layout to settle (two rAF ticks covers most paint cycles)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const navbar = document.getElementById('navbar');
+      const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+      // Extra 8 px breathing room so the section heading isn't flush with the bar
+      const offset = navbarHeight + 8;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const targetId = link.getAttribute('href').slice(1);
+    if (!targetId) return;
     const target = document.getElementById(targetId);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToSection(targetId);
     }
   });
 });

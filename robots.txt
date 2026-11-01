@@ -1,0 +1,9 @@
+# robots.txt for dangalpine.com
+# Alpine Educational Consultancy - Study Abroad Consultancy, Dang, Nepal
+
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://dangalpine.com/sitemap.xml
+
