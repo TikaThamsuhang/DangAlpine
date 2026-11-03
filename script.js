@@ -287,29 +287,44 @@ if (form) {
 
 /* ---- Smooth scroll for hash links ---- */
 /**
- * Robust scroll-to-section that:
- * 1. Accounts for the sticky navbar height.
- * 2. Waits for two animation frames so any lazy-loaded content
- *    has had a chance to reflow before we measure positions —
- *    this fixes the "first visit lands wrong" bug.
- * 3. Forces a hard scroll via window.scrollTo so it always
- *    arrives at exactly the right position.
+ * Robust scroll-to-section.
+ *
+ * Problem: On first page load the success-stories section contains
+ * 25 lazy-loaded images that haven't painted yet. Their containers
+ * are still 0px tall, so any position measured before they load is
+ * wrong — the page lands short (inside the success cards).
+ *
+ * Solution — "double scroll":
+ *   Pass 1 (immediate): cancel the browser's default hash jump and
+ *   do an instant scroll to the rough position so the user sees
+ *   movement right away.
+ *   Pass 2 (after 380 ms): re-measure and smooth-scroll to the
+ *   exact position. By this time lazy images have loaded and the
+ *   layout is stable.
+ *
+ * On subsequent clicks (layout already stable) both passes land at
+ * the same pixel, so there is no visible double-jump.
  */
-function scrollToSection(targetId) {
+function getScrollTop(targetId) {
   const target = document.getElementById(targetId);
-  if (!target) return;
+  if (!target) return null;
+  const navbar = document.getElementById('navbar');
+  const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+  return Math.max(0, target.getBoundingClientRect().top + window.scrollY - navbarHeight - 8);
+}
 
-  // Wait for layout to settle (two rAF ticks covers most paint cycles)
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const navbar = document.getElementById('navbar');
-      const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-      // Extra 8 px breathing room so the section heading isn't flush with the bar
-      const offset = navbarHeight + 8;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-    });
-  });
+function scrollToSection(targetId) {
+  // Pass 1 — immediate (no animation so it happens before images shift layout)
+  const topNow = getScrollTop(targetId);
+  if (topNow === null) return;
+  window.scrollTo({ top: topNow, behavior: 'instant' });
+
+  // Pass 2 — re-correct after lazy images have loaded and layout is stable
+  setTimeout(() => {
+    const topFinal = getScrollTop(targetId);
+    if (topFinal === null) return;
+    window.scrollTo({ top: topFinal, behavior: 'smooth' });
+  }, 380);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
